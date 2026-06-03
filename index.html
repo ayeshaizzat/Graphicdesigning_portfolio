@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ayesha Izzat — Graphic Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green: #10B981;
+    --green-light: #D1FAE5;
+    --green-dark: #065F46;
+    --off: #F8F8F6;
+    --ink: #111110;
+    --muted: #6B6B67;
+    --border: rgba(0,0,0,0.08);
+    --white: #FFFFFF;
+    --radius: 14px;
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--white); color: var(--ink); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo { font-family: var(--font-display); font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+  .nav-logo span { color: var(--green); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.2s; letter-spacing: 0.4px; text-transform: uppercase; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { background: var(--green); color: white; border: none; padding: 8px 20px; border-radius: 40px; font-size: 13px; font-weight: 500; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* SECTIONS */
+  section { padding: 100px 5vw 80px; }
+  section:first-of-type { padding-top: 140px; }
+
+  /* ── COVER ── */
+  #cover {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    background: var(--off);
+    position: relative; overflow: hidden;
+  }
+  .cover-inner { max-width: 720px; }
+  .cover-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--green-light); color: var(--green-dark);
+    font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 40px;
+    margin-bottom: 28px; letter-spacing: 0.3px;
+  }
+  .cover-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); display: inline-block; }
+  .cover-h1 { font-family: var(--font-display); font-size: clamp(42px, 7vw, 76px); font-weight: 700; line-height: 1.08; letter-spacing: -2px; margin-bottom: 22px; }
+  .cover-h1 em { color: var(--green); font-style: normal; }
+  .cover-sub { font-size: 17px; color: var(--muted); line-height: 1.65; max-width: 520px; margin-bottom: 40px; font-weight: 300; }
+  .cover-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { background: var(--ink); color: white; padding: 13px 28px; border-radius: 40px; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.2s; }
+  .btn-primary:hover { background: #2d2d2a; }
+  .btn-outline { background: transparent; color: var(--ink); padding: 13px 28px; border-radius: 40px; font-size: 14px; font-weight: 500; border: 1.5px solid var(--border); text-decoration: none; transition: border-color 0.2s; }
+  .btn-outline:hover { border-color: var(--ink); }
+  .cover-deco {
+    position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+    width: clamp(280px, 40vw, 560px); height: clamp(280px, 40vw, 560px);
+    border-radius: 50%; border: 1.5px solid rgba(16,185,129,0.2);
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+  }
+  .cover-deco::after {
+    content: ''; width: 75%; height: 75%; border-radius: 50%;
+    border: 1.5px solid rgba(16,185,129,0.12);
+  }
+  .cover-stats { display: flex; gap: 40px; margin-top: 56px; }
+  .stat-num { font-family: var(--font-display); font-size: 32px; font-weight: 700; color: var(--ink); }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.6px; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .section-eyebrow { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; color: var(--green); margin-bottom: 12px; }
+  .section-title { font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -1px; line-height: 1.15; margin-bottom: 24px; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .about-text p { font-size: 16px; color: var(--muted); line-height: 1.75; margin-bottom: 16px; font-weight: 300; }
+  .skills-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+  .skill-pill { background: var(--off); border: 0.5px solid var(--border); padding: 6px 16px; border-radius: 40px; font-size: 13px; font-weight: 500; color: var(--ink); }
+  .about-cards { display: grid; gap: 14px; }
+  .about-card { background: var(--off); border-radius: var(--radius); padding: 22px 24px; border: 0.5px solid var(--border); }
+  .about-card-icon { font-size: 22px; margin-bottom: 12px; }
+  .about-card h4 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
+  .about-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── WORK SECTIONS ── */
+  .work-section { background: var(--off); }
+  .work-section:nth-of-type(even) { background: var(--white); }
+  .work-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 16px; }
+  .work-tag { background: var(--ink); color: white; font-size: 11px; font-weight: 500; padding: 5px 14px; border-radius: 40px; letter-spacing: 0.4px; text-transform: uppercase; }
+  .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+  .post-card {
+    background: var(--white); border-radius: var(--radius); overflow: hidden;
+    border: 0.5px solid var(--border); transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+  }
+  .work-section:nth-of-type(even) .post-card { background: var(--off); }
+  .post-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .post-thumb {
+    aspect-ratio: 1/1;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px; font-weight: 700; letter-spacing: -1px;
+    position: relative; overflow: hidden;
+  }
+  .post-thumb .mock-label {
+    position: absolute; bottom: 10px; left: 10px;
+    background: rgba(255,255,255,0.9); color: var(--muted);
+    font-size: 10px; padding: 3px 8px; border-radius: 20px; font-weight: 500;
+  }
+  .post-info { padding: 14px 16px 16px; }
+  .post-title { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+  .post-meta { font-size: 12px; color: var(--muted); }
+
+  /* thumb palettes */
+  .t1 { background: linear-gradient(135deg,#E8F5FF 0%,#B3DFFF 100%); color: #1a6fa8; }
+  .t2 { background: linear-gradient(135deg,#FFF3E0 0%,#FFCC80 100%); color: #8c5a00; }
+  .t3 { background: linear-gradient(135deg,#E8F5E9 0%,#A5D6A7 100%); color: #2e7d32; }
+  .t4 { background: linear-gradient(135deg,#F3E5F5 0%,#CE93D8 100%); color: #6a1b9a; }
+  .t5 { background: linear-gradient(135deg,#FCE4EC 0%,#F48FB1 100%); color: #880e4f; }
+  .t6 { background: linear-gradient(135deg,#E0F2F1 0%,#80CBC4 100%); color: #00695c; }
+  .t7 { background: linear-gradient(135deg,#FFF8E1 0%,#FFE082 100%); color: #7b5800; }
+  .t8 { background: linear-gradient(135deg,#EDE7F6 0%,#B39DDB 100%); color: #311b92; }
+  .t9 { background: linear-gradient(135deg,#E1F5FE 0%,#81D4FA 100%); color: #01579b; }
+  .t10 { background: linear-gradient(135deg,#F9FBE7 0%,#DCE775 100%); color: #558b2f; }
+
+  /* ── CAROUSEL ── */
+  #carousel { background: var(--white); }
+  .carousel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .carousel-item { background: var(--off); border-radius: var(--radius); border: 0.5px solid var(--border); overflow: hidden; }
+  .carousel-slide { height: 110px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--muted); font-weight: 500; }
+  .carousel-dots { display: flex; gap: 6px; padding: 10px 14px; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); }
+  .dot.active { background: var(--green); width: 18px; border-radius: 4px; }
+
+  /* ── AD CREATIVES ── */
+  #ads { background: var(--off); }
+  .ads-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
+  .ad-card { border-radius: var(--radius); overflow: hidden; border: 0.5px solid var(--border); aspect-ratio: 4/5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+  .ad-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); }
+  .ad-format { font-size: 13px; font-weight: 500; color: var(--ink); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--ink); color: white; text-align: center; }
+  #contact .section-eyebrow { color: var(--green); }
+  #contact .section-title { color: white; }
+  .contact-sub { font-size: 16px; color: rgba(255,255,255,0.55); max-width: 480px; margin: 0 auto 44px; line-height: 1.7; font-weight: 300; }
+  .contact-card { background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 40px; max-width: 520px; margin: 0 auto; }
+  .contact-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 0.5px solid rgba(255,255,255,0.08); text-align: left; }
+  .contact-row:last-child { border-bottom: none; }
+  .contact-icon { width: 38px; height: 38px; border-radius: 10px; background: rgba(16,185,129,0.15); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .contact-label { font-size: 12px; color: rgba(255,255,255,0.4); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .contact-value { font-size: 14px; font-weight: 500; color: white; }
+  .contact-cta { margin-top: 36px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-green { background: var(--green); color: white; padding: 14px 32px; border-radius: 40px; font-size: 14px; font-weight: 500; text-decoration: none; transition: opacity 0.2s; }
+  .btn-green:hover { opacity: 0.85; }
+  .btn-ghost { background: transparent; color: white; padding: 14px 32px; border-radius: 40px; font-size: 14px; font-weight: 500; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; transition: border-color 0.2s; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); }
+
+  /* FOOTER */
+  footer { background: var(--ink); border-top: 0.5px solid rgba(255,255,255,0.06); text-align: center; padding: 24px; font-size: 12px; color: rgba(255,255,255,0.3); }
+  footer span { color: var(--green); }
+
+  @media (max-width: 700px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .carousel-grid { grid-template-columns: 1fr 1fr; }
+    nav .nav-links { display: none; }
+    .cover-deco { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ayesha<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#saas">SaaS</a></li>
+    <li><a href="#app">App</a></li>
+    <li><a href="#web">Web</a></li>
+    <li><a href="#carousel">Carousel</a></li>
+    <li><a href="#ads">Ads</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- COVER -->
+<section id="cover">
+  <div class="cover-inner">
+    <div class="cover-badge">Open to Work · Remote · Pakistan</div>
+    <h1 class="cover-h1">Designing Creatives<br/>That <em>Convert.</em></h1>
+    <p class="cover-sub">Graphic Designer specializing in SaaS, Mobile App & Agency creatives — helping brands stand out on every platform.</p>
+    <div class="cover-btns">
+      <a href="#saas" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+    <div class="cover-stats">
+      <div>
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Designs Delivered</div>
+      </div>
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Design Niches</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Remote-Ready</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-deco"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-eyebrow">About Me</div>
+      <h2 class="section-title">Creative mind.<br/>Detail-oriented hands.</h2>
+      <p>Hi, I'm Ayesha Izzat — a graphic designer based in Karachi, Pakistan. I create scroll-stopping social media posts, app marketing creatives, and agency-quality visuals.</p>
+      <p>I work with Canva, Figma, Photoshop, and Illustrator to bring brand stories to life — fast, clean, and on brief.</p>
+      <div class="skills-list">
+        <span class="skill-pill">Canva</span>
+        <span class="skill-pill">Figma</span>
+        <span class="skill-pill">Photoshop</span>
+        <span class="skill-pill">Illustrator</span>
+        <span class="skill-pill">Social Media Design</span>
+        <span class="skill-pill">Ad Creatives</span>
+        <span class="skill-pill">Brand Guidelines</span>
+        <span class="skill-pill">Carousel Posts</span>
+      </div>
+    </div>
+    <div class="about-cards">
+      <div class="about-card">
+        <div class="about-card-icon">🎯</div>
+        <h4>Strategy-first Design</h4>
+        <p>Every creative is designed with purpose — to drive clicks, engagement, or conversions.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">⚡</div>
+        <h4>Fast Turnaround</h4>
+        <p>Reliable on deadlines. Comfortable with Asana, Slack, and async workflows.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🇵🇰</div>
+        <h4>Pakistan-Based · Remote</h4>
+        <p>Fully remote, flexible hours, and strong communication in English and Urdu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAAS -->
+<section id="saas" class="work-section">
+  <div class="work-header">
+    <div>
+      <div class="section-eyebrow">Work · 01</div>
+      <h2 class="section-title">SaaS Social Media Designs</h2>
+    </div>
+    <span class="work-tag">5–10 Posts</span>
+  </div>
+  <div class="posts-grid">
+    <div class="post-card">
+      <div class="post-thumb t1">SaaS<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Feature Announcement Post</div><div class="post-meta">1080×1080 · Instagram</div></div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb t9">SaaS<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Product Launch Story</div><div class="post-meta">1080×1920 · Story</div></div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb t3">SaaS<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Testimonial Creative</div><div class="post-meta">1080×1080 · LinkedIn</div></div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb t7">SaaS<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Comparison Infographic</div><div class="post-meta">1080×1350 · Feed</div></div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb t6">SaaS<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Stats & Numbers Post</div><div class="post-meta">1080×1080 · Twitter/X</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- APP -->
+<section id="app" class="work-section">
+  <div class="work-header">
+    <div>
+      <div class="section-eyebrow">Work · 02</div>
+      <h2 class="section-title">Mobile App Marketing Designs</h2>
+    </div>
+    <span class="work-tag">5–10 Posts</span>
+  </div>
+  <div class="posts-grid">
+    <div class="post-card">
+      <div class="post-thumb t4">App<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">App Store Banner</div><div class="post-meta">1024×500 · Google Play</div></div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb t5">App<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Download CTA Post</div><div class="post-meta">1080×1080 · Instagram</div></div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb t8">App<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Feature Highlight Reel</div><div class="post-meta">1080×1920 · Story</div></div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb t2">App<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">App Review Showcase</div><div class="post-meta">1080×1350 · Feed</div></div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb t10">App<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Before/After UI Mockup</div><div class="post-meta">1080×1080 · LinkedIn</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WEBSITE & AGENCY -->
+<section id="web" class="work-section">
+  <div class="work-header">
+    <div>
+      <div class="section-eyebrow">Work · 03</div>
+      <h2 class="section-title">Website &amp; Agency Creatives</h2>
+    </div>
+    <span class="work-tag">5–10 Posts</span>
+  </div>
+  <div class="posts-grid">
+    <div class="post-card">
+      <div class="post-thumb t1">Web<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Agency Service Post</div><div class="post-meta">1080×1080 · Instagram</div></div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb t3">Web<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Website Launch Announcement</div><div class="post-meta">1080×1080 · LinkedIn</div></div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb t7">Web<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Case Study Snippet</div><div class="post-meta">1080×1350 · Feed</div></div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb t6">Web<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Portfolio Preview Banner</div><div class="post-meta">1200×628 · OG / Cover</div></div>
+    </div>
+    <div class="post-card">
+      <div class="post-thumb t9">Web<div class="mock-label">Replace with your design</div></div>
+      <div class="post-info"><div class="post-title">Team Introduction Post</div><div class="post-meta">1080×1080 · Instagram</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAROUSEL -->
+<section id="carousel">
+  <div class="work-header">
+    <div>
+      <div class="section-eyebrow">Work · 04</div>
+      <h2 class="section-title">Carousel Designs</h2>
+    </div>
+    <span class="work-tag">Multi-slide Posts</span>
+  </div>
+  <div class="carousel-grid">
+    <div class="carousel-item">
+      <div class="carousel-slide t1">Slide 1 / 5</div>
+      <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="post-info"><div class="post-title">SaaS Features Carousel</div><div class="post-meta">5 slides · Instagram</div></div>
+    </div>
+    <div class="carousel-item">
+      <div class="carousel-slide t4">Slide 1 / 6</div>
+      <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="post-info"><div class="post-title">How It Works · App</div><div class="post-meta">6 slides · LinkedIn</div></div>
+    </div>
+    <div class="carousel-item">
+      <div class="carousel-slide t10">Slide 1 / 4</div>
+      <div class="carousel-dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="post-info"><div class="post-title">Agency Services Carousel</div><div class="post-meta">4 slides · Instagram</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ADS -->
+<section id="ads">
+  <div class="work-header">
+    <div>
+      <div class="section-eyebrow">Work · 05</div>
+      <h2 class="section-title">Ad Creatives</h2>
+    </div>
+    <span class="work-tag">Paid Ads</span>
+  </div>
+  <div class="ads-grid">
+    <div class="ad-card t1">
+      <div class="ad-label">Facebook Ad</div>
+      <div class="ad-format">1200 × 628</div>
+    </div>
+    <div class="ad-card t5">
+      <div class="ad-label">Story Ad</div>
+      <div class="ad-format">1080 × 1920</div>
+    </div>
+    <div class="ad-card t3">
+      <div class="ad-label">Google Display</div>
+      <div class="ad-format">300 × 250</div>
+    </div>
+    <div class="ad-card t7">
+      <div class="ad-label">LinkedIn Ad</div>
+      <div class="ad-format">1200 × 627</div>
+    </div>
+    <div class="ad-card t8">
+      <div class="ad-label">Square Ad</div>
+      <div class="ad-format">1080 × 1080</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-eyebrow">Get In Touch</div>
+  <h2 class="section-title">Let's work together.</h2>
+  <p class="contact-sub">Looking for a dedicated graphic designer for your brand's social media and marketing creatives? I'm available and ready to start.</p>
+  <div class="contact-card">
+    <div class="contact-row">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">ayeshaizzat@email.com</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon">🌍</div>
+      <div>
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Karachi, Pakistan · Remote</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon">🔗</div>
+      <div>
+        <div class="contact-label">Portfolio</div>
+        <div class="contact-value">ayeshaizzat.vercel.app</div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-icon">💼</div>
+      <div>
+        <div class="contact-label">Available For</div>
+        <div class="contact-value">Full-time Remote · Freelance</div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-cta">
+    <a href="mailto:ayeshaizzat@email.com" class="btn-green">Send Me a Message</a>
+    <a href="#" class="btn-ghost">Download CV</a>
+  </div>
+</section>
+
+<footer>
+  Crafted with care by <span>Ayesha Izzat</span> · 2024 · Karachi, Pakistan
+</footer>
+
+</body>
+</html>
