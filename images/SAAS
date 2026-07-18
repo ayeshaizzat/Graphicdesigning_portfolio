@@ -1,0 +1,26 @@
+<svg viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
+<rect x="0" y="0" width="680" height="680" fill="#FAF6F0"/>
+<circle cx="620" cy="60" r="100" fill="#EEEDFE"/>
+<rect x="0" y="600" width="680" height="80" fill="#534AB7"/>
+<rect x="48" y="48" width="14" height="14" rx="3" fill="#534AB7"/>
+<text x="72" y="60" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#26215C">FLOWLY</text>
+<text x="48" y="180" font-family="Georgia, serif" font-size="90" font-weight="700" fill="#CECBF6">&#8220;</text>
+<text x="60" y="240" font-family="Georgia, serif" font-size="32" font-weight="700" fill="#1A1A1A">
+<tspan x="60" dy="0">Cut our reporting time</tspan>
+<tspan x="60" dy="42">from three days to</tspan>
+<tspan x="60" dy="42">twenty minutes. It just</tspan>
+<tspan x="60" dy="42">works.</tspan>
+</text>
+<g>
+<path d="M60 400 l6 12 13 2 -9.5 9 2 13 -11.5 -6 -11.5 6 2 -13 -9.5 -9 13 -2z" fill="#F0997B"/>
+<path d="M112 400 l6 12 13 2 -9.5 9 2 13 -11.5 -6 -11.5 6 2 -13 -9.5 -9 13 -2z" fill="#F0997B"/>
+<path d="M164 400 l6 12 13 2 -9.5 9 2 13 -11.5 -6 -11.5 6 2 -13 -9.5 -9 13 -2z" fill="#F0997B"/>
+<path d="M216 400 l6 12 13 2 -9.5 9 2 13 -11.5 -6 -11.5 6 2 -13 -9.5 -9 13 -2z" fill="#F0997B"/>
+<path d="M268 400 l6 12 13 2 -9.5 9 2 13 -11.5 -6 -11.5 6 2 -13 -9.5 -9 13 -2z" fill="#F0997B"/>
+</g>
+<circle cx="82" cy="500" r="34" fill="#7F77DD"/>
+<text x="82" y="508" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="middle">MK</text>
+<text x="130" y="494" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#1A1A1A">Maria Kowalski</text>
+<text x="130" y="518" font-family="Arial, sans-serif" font-size="15" fill="#5F5E5A">Operations Lead, Nordic Retail</text>
+<text x="48" y="650" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">TRUSTED BY 500+ TEAMS</text>
+</svg>
